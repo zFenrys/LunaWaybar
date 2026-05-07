@@ -15,8 +15,6 @@ $$ | \_/ $$ |\$$$$$$$ |$$ |   $$ |  $$ |\$$$$$$$\ $$ | $$ | $$ |\$$$$$$$\
 @define-color backgroundlight rgba(255, 255, 255, 0.1);
 @define-color backgrounddark #FFFFFF;
 @define-color shadow rgba(255, 255, 255, 0.65);
-/*@define-color workspacesbackground1 #FFFFFF;*/
-/*@define-color workspacesbackground2 #CCCCCC;*/
 @define-color workspacesbackground1 rgba(0, 0, 0, 0.2);
 @define-color workspacesbackground2 rgba(0, 0, 0, 0.5);
 @define-color bordercolor #FFFFFF;
@@ -27,10 +25,9 @@ $$ | \_/ $$ |\$$$$$$$ |$$ |   $$ |  $$ |\$$$$$$$\ $$ | $$ | $$ |\$$$$$$$\
 @define-color traslucent rgba(255, 255, 255, 0.2);
 
 /* ──────────────────── My Define-color ────────────────────  */
-@define-color modules rgba(29, 27, 35, 1);
-@define-color backgroundsoftdark rgba(40, 38, 47, 1);
-/*@define-color hover rgba(63, 68, 100, 0.5);*/
-@define-color hover rgba(52,52,65, 1);
+@define-color modules rgba(49, 50, 68, 0.5);
+@define-color backgroundsoftdark rgba(40, 38, 47, 0.4);
+@define-color hover rgba(0, 0, 0, 0.3);
 @define-color luna rgba(208, 188, 255, 1);
 
 /* ── General ──────────────────────────────────────────────── */
@@ -116,7 +113,7 @@ window#waybar {
 /* Workspaces Vuoti. */
 #workspaces button.empty {
     color: rgba(255, 255, 255, 0.3);
-    background-color: @backgroundsoftdark; /* sfondo leggero */
+    background-color: rgba(255, 255, 255, 0.1); /* sfondo leggero */
     border-radius: 10px;
     transition:
         background-color 120ms,
@@ -127,7 +124,7 @@ window#waybar {
     margin: 5px 2px;
     border-radius: 10px 10px 10px 10px;
     color: rgba(0, 0, 0, 0.6);
-    background-color: rgba(99, 96, 103, 1);
+    background-color: rgba(255, 255, 255, 0.4);
     min-width: 10px;
     transition: all 0.1s linear;
     opacity: 1;
@@ -173,7 +170,6 @@ window#waybar {
     background-color: rgba(50, 39, 69, 0.6);
     color: rgba(255, 255, 255, 0.7);
 }
-
 /* ── Tooltip ───────────────────────────────────────────────── */
 tooltip {
     /*  border-radius: 16px; */
@@ -187,12 +183,10 @@ tooltip label {
 }
 
 /* ── Spacer ───────────────────────────────────────────────── */
-/* Separator visivo più leggero */
 #custom-sep {
     opacity: 0.6;
     padding: 0 6px;
 }
-/* Tronca il titolo in sicurezza quando è lungo */
 #window {
     min-width: 0;
 }
@@ -684,7 +678,7 @@ window#waybar.empty #window {
 /* ── Custom Mic ───────────────────────────────────────────── */
 #custom-mic {
     font-size: 14px;
-    padding: 7 7px;
+    padding: 7px 7px;
     margin: 7px 5px 7px 0px;
     border-radius: 50px 50px 50px 50px;
     color: @iconcolor; /* default: bianco */
@@ -971,7 +965,7 @@ window#waybar.empty #window {
 
 /* ── Audio visualizer (Cava) ───────────────────────────────────── */
 #custom-cava-internal {
-    min-width: 115px;
+    min-width: 175px;
     padding: 0px 8px;
     border-style: solid;
     /*background-color: shade(#24273a, 1);*/
@@ -1000,4 +994,14 @@ window#waybar.empty #window {
     padding: 3px 6px 1px 6px; /* +1px verticale, +3px orizzontale */
     margin: 4px 4px; /* compensa per restare più centrato */
     border-radius: 7px; /* un filo più tondo quando cresce */
+}
+
+/* ── Uptime ───────────────────────────────────── */
+#custom-uptime {
+    font-family: "MesloLGS NF";
+    font-size: 16px;
+    letter-spacing: 1px;
+    padding: 0 12px;
+    margin: 0 4px;
+    color: @luna;
 }

@@ -35,18 +35,6 @@
             "DP-1": [1, 2, 3, 4, 5],
         },
     },
-    // Now Playing di ML4W
-    //"custom/musicnano ": {
-    //    "return-type": "json",
-    //    "exec": "/home/manuel/.local/bin/waybar-music-run.sh",
-    //    "format": "{}",
-    //    "tail": true,
-    //    "exec-if": "playerctl -l 2>/dev/null | grep -q .",
-    //    "on-click": "playerctl -p playerctld play-pause",
-    //    "on-scroll-up": "playerctl -p playerctld next",
-    //    "on-scroll-down": "playerctl -p playerctld previous",
-    //    "on-click-right": "playerctld shift; sleep 0.1; pid=$(cat /tmp/waybar_music.pid 2>/dev/null); [ -n \"$pid\" ] && kill \"$pid\" 2>/dev/null || true"
-    //},
     "custom/spacer": {
         "format": "│", // il “|” elegante (box-drawing). Cambialo se vuoi
         "tooltip": false,
@@ -54,14 +42,14 @@
     // Custom Music
     "custom/music": {
         "return-type": "json",
-        "exec": "/home/manuel/.local/bin/waybar-module-music --format '%icon% %artist% - %title% %player-icon%' --marquee --effect-speed 1500 --title-width 40",
+        "exec": "~/.local/bin/waybar-module-music --format '%icon% %artist% - %title% %player-icon%' --marquee --effect-speed 1500 --title-width 40",
         "format": "{}",
         "tail": true,
         //"exec-if": "command -v /usr/bin/playerctl >/dev/null && /usr/bin/playerctl -l 2>/dev/null | grep -q .",
         "on-click": "/usr/bin/playerctl -p playerctld play-pause",
         "on-scroll-up": "/usr/bin/playerctl -p playerctld next",
         "on-scroll-down": "/usr/bin/playerctl -p playerctld previous",
-        //"on-click-right": "/bin/bash -lc 'playerctld shift; sleep 0.15; wp=$PPID; pid=$(pgrep -P \"$wp\" -f \"/home/manuel/.local/bin/waybar-module-music\" | head -n1); [ -n \"$pid\" ] && kill \"$pid\" 2>/dev/null || true'"
+        //"on-click-right": "/bin/bash -lc 'playerctld shift; sleep 0.15; wp=$PPID; pid=$(pgrep -P \"$wp\" -f \"~/.local/bin/waybar-module-music\" | head -n1); [ -n \"$pid\" ] && kill \"$pid\" 2>/dev/null || true'"
     },
     // Hyprland Window
     "hyprland/window": {
@@ -87,7 +75,7 @@
     "custom/exit": {
         "format": "",
         "tooltip-format": "Powermenu",
-        "on-click": "sh -c '/home/manuel/.config/waybar/scripts/powermenu.sh'",
+        "on-click": "sh -c '~/.config/waybar/scripts/powermenu.sh'",
         "tooltip": false,
     },
     // Keyboard State
@@ -108,7 +96,7 @@
     },
     // Mako Icon
     "custom/mako-button": {
-        "exec": "/home/manuel/.config/waybar/scripts/mako-count",
+        "exec": "~/.config/waybar/scripts/mako-count",
         "interval": 5,
         "on-click": "makoctl restore",
         "return-type": "json",
@@ -185,7 +173,7 @@
         "tooltip-format-disconnected": "Disconnected",
         "max-length": 50,
         "on-click": "nm-applet",
-        "on-click-right": "~/.config/ml4w/scripts/nm-applet.sh toggle",
+        "on-click-right": "~/.config/waybar/scripts/nm-applet.sh toggle",
     },
     // Battery
     "battery": {
@@ -243,7 +231,7 @@
         "format-off": "󰂲",
         "format-disabled": "󰂲",
         "interval": 30,
-        "on-click": "/home/manuel/.config/waybar/scripts/toggle_bluetooth.sh",
+        "on-click": "~/.config/waybar/scripts/toggle_bluetooth.sh",
         "on-click-right": "blueman-manager",
         "format-no-controller": "",
     },
@@ -265,7 +253,7 @@
     },
     // Custom Mic Sensor
     "custom/mic": {
-        "exec": "/home/manuel/.config/waybar/scripts/mic_indicator.sh",
+        "exec": "~/.config/waybar/scripts/mic_indicator.sh",
         "return-type": "json",
         "tail": true,
         "tooltip": false,
@@ -274,7 +262,7 @@
     },
     // Nvidia
     "custom/nvidia": {
-        "exec": "/home/manuel/.config/waybar/scripts/nvidia-gpu.sh",
+        "exec": "~/.config/waybar/scripts/nvidia-gpu.sh",
         "return-type": "json",
         "interval": 5,
         "tooltip": true,
@@ -282,7 +270,7 @@
     },
     // Ping
     "custom/ping": {
-        "exec": "/bin/bash -lc '/home/manuel/.config/waybar/scripts/ping-ms.sh 1.1.1.1'",
+        "exec": "/bin/bash -lc '~/.config/waybar/scripts/ping-ms.sh 1.1.1.1'",
         "return-type": "json",
         "interval": 5,
         "tooltip": true,
@@ -290,7 +278,7 @@
     },
     // Sys Stat
     "custom/sys": {
-        "exec": "~/.config/waybar/scripts/sys_block_grade.sh",
+        "exec": "~/.config/waybar/scripts/sys_block.sh",
         "return-type": "json",
         "interval": 2,
         "on-click": "kitty -e btop", // sinistro: CPU/RAM
