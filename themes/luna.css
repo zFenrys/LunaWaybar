@@ -1,16 +1,11 @@
 /*
-$$\      $$\        $$$$$$$$\ $$\
-$$$\    $$$ |       \__$$  __|$$ |
-$$$$\  $$$$ |$$\   $$\ $$ |   $$$$$$$\   $$$$$$\  $$$$$$\$$$$\   $$$$$$\
-$$\$$\$$ $$ |$$ |  $$ |$$ |   $$  __$$\ $$  __$$\ $$  _$$  _$$\ $$  __$$\
-$$ \$$$  $$ |$$ |  $$ |$$ |   $$ |  $$ |$$$$$$$$ |$$ / $$ / $$ |$$$$$$$$ |
-$$ |\$  /$$ |$$ |  $$ |$$ |   $$ |  $$ |$$   ____|$$ | $$ | $$ |$$   ____|
-$$ | \_/ $$ |\$$$$$$$ |$$ |   $$ |  $$ |\$$$$$$$\ $$ | $$ | $$ |\$$$$$$$\
-\__|     \__| \____$$ |\__|   \__|  \__| \_______|\__| \__| \__| \_______|
-             $$\   $$ |
-             \$$$$$$  |
-              \______/
- * ---------------------------------------------------------------*/
+  '     __  __                 __                  '
+  '    / / / /_  ______  _____/ /_  ______  ____ _ '
+  '   / /_/ / / / / __ \/ ___/ / / / / __ \/ __ `/ '
+  '  / __  / /_/ / /_/ / /  / / /_/ / / / / /_/ /  '
+  ' /_/ /_/\__, / .___/_/  /_/\__,_/_/ /_/\__,_/   '
+  '       /____/_/                                 '
+ --------------------------------------------------------------- */
 
 @define-color backgroundlight rgba(255, 255, 255, 0.1);
 @define-color backgrounddark #FFFFFF;
@@ -40,7 +35,7 @@ $$ | \_/ $$ |\$$$$$$$ |$$ |   $$ |  $$ |\$$$$$$$\ $$ | $$ | $$ |\$$$$$$$\
     border-radius: 0px;
 }
 
-/* ── Effetto Hover Globale ───────────────────────────────────────────────── */
+/* ── Effect Hover Global ───────────────────────────────────────────────── */
 #clock:hover,
 #network.disconnected:hover,
 #network.ethernet:hover,
@@ -57,50 +52,47 @@ $$ | \_/ $$ |\$$$$$$$ |$$ |   $$ |  $$ |\$$$$$$$\ $$ | $$ | $$ |\$$$$$$$\
 #custom-nvidia:hover,
 #custom-sys:hover {
     background-color: @hover;
-    padding: 3px 9px 1px 9px; /* +1px verticale, +3px orizzontale */
-    margin: 4px 4px; /* compensa per restare più centrato */
-    border-radius: 7px; /* un filo più tondo quando cresce */
+    padding: 3px 9px 1px 9px;
+    margin: 4px 4px;
+    border-radius: 7px;
 }
 /* ── Waybar ───────────────────────────────────────────────── */
 window#waybar {
-    /*background: rgba(0, 0, 0, 0.4);*/
     background: rgba(0, 0, 0, 0);
-    padding: 0 10px; /* solo orizzontale */
+    padding: 0 10px;
     transition: background-color 0.5s ease;
     border-radius: 8px 8px 8px 8px;
 }
-/* SOLO il blocco sinistro “a card” */
+/* Left Card */
 #waybar .modules-left {
     background: @modules;
-    /*border: 1px solid rgba(255, 255, 255, 0.04);*/
     border-radius: 14px;
     margin: 7px 0px 7px 0px;
-    padding: 0 10px; /* solo orizzontale */
-    margin-right: 8px; /* spazio a destra */
+    padding: 0 10px;
+    margin-right: 8px;
     transition:
         background-color 0.3s ease,
         border-color 0.3s ease;
 }
-/* Spaziatura interna dei widget nel blocco sinistro */
+/* Internal spacing left module */
 #waybar .modules-left > widget {
     padding: 0 8px;
 }
 #waybar .modules-left > widget:not(:last-child) {
     margin-right: 6px;
 }
-/* Centro */
+/* center */
 #waybar .modules-center {
     background: @modules;
     margin: 7px 0px 7px 0px;
     padding: 2px 8px;
     border-radius: 50px 50px 50px 50px;
 }
-/* Destra */
+/* right */
 #waybar .modules-right {
     background: @modules;
-    /*border: 1px solid rgba(255, 255, 255, 0.04);*/
     border-radius: 14px;
-    padding: 0 3px; /* solo orizzontale */
+    padding: 0 3px;
 }
 
 /* ── Workspaces ───────────────────────────────────────────── */
@@ -110,10 +102,10 @@ window#waybar {
     opacity: 1;
     color: @textcolor1;
 }
-/* Workspaces Vuoti. */
+/* Workspaces empty */
 #workspaces button.empty {
     color: rgba(255, 255, 255, 0.3);
-    background-color: rgba(255, 255, 255, 0.1); /* sfondo leggero */
+    background-color: rgba(255, 255, 255, 0.1);
     border-radius: 10px;
     transition:
         background-color 120ms,
@@ -131,8 +123,6 @@ window#waybar {
 }
 #workspaces button.active {
     color: rgba(0, 0, 0, 0.6);
-    /* background: rgba(0, 0, 0, 0.65);*/
-    /*background-color: rgba(0, 0, 0, 0.4);*/
     background-color: @luna;
     border-radius: 50px 50px 50px 50px;
     min-width: 30px;
@@ -140,23 +130,20 @@ window#waybar {
     opacity: 1;
 }
 #workspaces button:hover {
-    /*color: @textcolor1;*/
     color: rgba(44, 13, 143, 1);
     background: @luna;
     border-radius: 5px 5px 5px 5px;
     transition: all 0.2s linear;
     opacity: 1;
 }
-/* colore per tutti i workspace special */
+/* specials */
 #workspaces button.special {
-    /*background-color: #896AF1;*/
     background-color: #896af1;
-    /*color: rgba(33, 10, 107, 1);*/
     color: #d4c2fb;
     border-radius: 10px;
 }
 
-/* quando il special è attivo / focused */
+/* active/focused */
 #workspaces button.special.active,
 #workspaces button.special.focused {
     background-color: #8f5cff;
@@ -165,14 +152,13 @@ window#waybar {
     border: 2px solid @luna;
 }
 
-/* se vuoi che i special vuoti abbiano un look attenuato */
+/* specials empty */
 #workspaces button.special.empty {
     background-color: rgba(50, 39, 69, 0.6);
     color: rgba(255, 255, 255, 0.7);
 }
 /* ── Tooltip ───────────────────────────────────────────────── */
 tooltip {
-    /*  border-radius: 16px; */
     background-color: rgba(40, 38, 47, 0.7);
     opacity: 1;
     padding: 20px;
@@ -196,7 +182,6 @@ tooltip label {
     font-family: "MesloLGS NF", monospace;
     margin: 5px 0px 5px 0px;
     padding: 0 5px;
-    /*border-radius: 3px 3px 3px 3px;*/
     border-radius: 6px 6px 6px 6px;
     color: white;
     font-size: 15px;
@@ -207,14 +192,6 @@ tooltip label {
         @shadow;
     background: transparent;
 }
-/*
-#window:hover {
-    background: rgba(30, 30, 30, 0.42);
-    box-shadow:
-        0 8px 22px rgba(0, 0, 0, 0.34),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-*/
 window#waybar.empty #window {
     background-color: transparent;
 }
@@ -318,21 +295,21 @@ window#waybar.empty #window {
     margin-right: 10px;
     font-size: 18px;
     font-weight: bold;
-    opacity: 0.1; /* invisibile di default */
+    opacity: 0.1;
     color: @iconcolor;
     transition:
         opacity 0.2s ease-in-out,
         color 0.2s ease-in-out;
 }
 #idle_inhibitor:hover {
-    opacity: 0.5; /* più visibile al passaggio del mouse */
-    color: #dc2f2f; /* cambia colore se vuoi */
+    opacity: 0.5;
+    color: #dc2f2f;
 }
 #idle_inhibitor.activated {
     margin-right: 15px;
     font-size: 18px;
     font-weight: bold;
-    opacity: 0.8; /* visibile se attivo */
+    opacity: 0.8;
     color: #dc2f2f;
 }
 
@@ -360,7 +337,6 @@ window#waybar.empty #window {
 
 /* ── Custom Exit ──────────────────────────────────────────── */
 #custom-exit {
-    /* margin: 3px 13px 3px 15px; */
     margin: 3px 10px 3px 10px;
     padding: 0px;
     font-size: 18px;
@@ -370,7 +346,7 @@ window#waybar.empty #window {
 }
 
 #custom-exit:hover {
-    opacity: 1; /* visibile al passaggio del mouse */
+    opacity: 1;
 }
 
 /* ── Hardware Group ───────────────────────────────────────── */
@@ -466,7 +442,7 @@ window#waybar.empty #window {
     padding: 2px 5px 0px 5px;
     margin: 7px 5px 7px 0px;
     opacity: 1;
-    /* transizioni soft per volume */
+    /* soft transition */
     transition:
         background-color 160ms ease,
         color 160ms ease,
@@ -474,7 +450,6 @@ window#waybar.empty #window {
         box-shadow 160ms ease;
 }
 #pulseaudio.muted {
-    /* background-color: @backgroundlight;*/
     color: #dc2f2f;
 }
 #pulseaudio.source-muted {
@@ -503,7 +478,7 @@ window#waybar.empty #window {
         text-shadow 160ms ease,
         box-shadow 160ms ease;
 }
-/* Disconnesso: bordo rosso sotto */
+/* Disconnected: red border */
 #network.disconnected {
     border-top: none;
     border-bottom: 2px solid #dd2241;
@@ -519,7 +494,6 @@ window#waybar.empty #window {
     color: @textcolor2;
     min-width: 20px;
     border-radius: 10px 10px 10px 10px;
-    /*min-width: 86px;*/
 }
 #network.wifi {
     text-shadow:
@@ -530,7 +504,6 @@ window#waybar.empty #window {
 }
 
 /* ── Bluetooth ────────────────────────────────────────────── */
-/*#bluetooth.on,*/
 #bluetooth {
     transition:
         background-color 160ms ease,
@@ -544,11 +517,6 @@ window#waybar.empty #window {
     border-top: 2px solid #4da8fd;
     font-size: 15px;
     color: @luna;
-    /* color: #4da8fd; Blue Bluetooth */
-    /*text-shadow:
-        0px 0px 2px rgba(0, 0, 0, 0.25),
-        0px 0px 2px rgba(0, 0, 0, 1),
-        0px 0px 3px rgba(255, 255, 255, 0.35);*/
 
     border-radius: 50px 50px 50px 50px;
     opacity: 1;
@@ -560,7 +528,6 @@ window#waybar.empty #window {
         0px 0px 2px,
         @shadow;
     background: @backgroundsoftdark;
-    /*border-bottom: 2px solid #0085ff;*/
     border-top: 2px solid #0085ff;
     font-size: 15px;
     color: @textcolor2;
@@ -645,8 +612,7 @@ window#waybar.empty #window {
 
 /* ── Custom VPN ───────────────────────────────────────────── */
 #custom-vpn {
-    font-family:
-        "JetBrainFontsMono Nerd Font", monospace; /* JetBrainsMono il più figo */
+    font-family: "JetBrainFontsMono Nerd Font", monospace;
     text-shadow:
         0px 0px 2px,
         @shadow;
@@ -667,12 +633,10 @@ window#waybar.empty #window {
 #custom-vpn.connected {
     border-top: 2px solid #00ff80;
     font-weight: bold;
-    /* color: #00ff96; */
 }
 #custom-vpn.disconnected {
     border-bottom: 2px solid #ff6060;
     font-weight: bold;
-    /* color: #dd2241; */
 }
 
 /* ── Custom Mic ───────────────────────────────────────────── */
@@ -681,39 +645,35 @@ window#waybar.empty #window {
     padding: 7px 7px;
     margin: 7px 5px 7px 0px;
     border-radius: 50px 50px 50px 50px;
-    color: @iconcolor; /* default: bianco */
+    color: @iconcolor;
     background: @backgroundsoftdark;
-    text-shadow: none; /* più nitido */
+    text-shadow: none;
     transition:
         color 140ms ease,
         text-shadow 140ms ease;
 }
-/* Attivo (in registrazione/capture) */
+/* Active/Not muted */
 #custom-mic.active {
     color: #00ff80;
     text-shadow: 0 0 3px #00ff80;
 }
-/* MUTED (rosso, anche se non in uso) */
+/* Muted */
 #custom-mic.muted {
     color: #ff6060;
     text-shadow: 0 0 3px #ff6060;
 }
-/* Inattivo: resta visibile e bianco */
+/* Inactive !!!NOT WORKING!!!  */
 #custom-mic.inactive {
-    color: @iconcolor; /* ← niente trasparenze */
-    text-shadow: none; /* niente glow */
-    /* mantieni spazio coerente */
-    /* (se vuoi larghezza fissa per evitare “saltelli”, sblocca la riga sotto) */
-    /* min-width: 22px; text-align: center; */
+    color: @iconcolor;
+    text-shadow: none;
 }
-/* transizione solo tra active <-> muted */
+/* animation unmuted <-> muted */
 #custom-mic.active,
 #custom-mic.muted {
     transition:
         color 160ms ease,
         text-shadow 160ms ease;
 }
-/* disattiva transizioni quando entra/esce da inactive */
 #custom-mic.inactive {
     transition: none;
 }
@@ -730,16 +690,12 @@ window#waybar.empty #window {
 #custom-music.playing {
     font-family: "MesloLGS NF", monospace;
     font-size: 14px;
-    /* color: #8de5fb; */
-    /* text-shadow:
-        0px 0px 4px rgba(141, 206, 251, 0.65),
-        0px 0px 10px rgba(141, 206, 251, 0.35); */
     color: rgba(198, 191, 255, 1);
     text-shadow:
         0px 0px 4px rgba(208, 188, 255, 0.65),
         0px 0px 10px rgba(208, 188, 255, 0.35);
     border-radius: 5px 5px 5px 5px;
-    animation: music-in 260ms ease-out 1; /* <- parte solo quando entra in playing */
+    animation: music-in 260ms ease-out 1;
     opacity: 1;
 }
 #custom-music.paused {
@@ -747,7 +703,6 @@ window#waybar.empty #window {
     font-size: 14px;
     color: #ffffff;
     text-shadow: 0px 0px 4px rgba(255, 255, 255, 0.65);
-    /*  background: rgba(0, 0, 0, 0.5);  */
     border-radius: 5px 5px 5px 5px;
 }
 #custom-music.stopped {
@@ -794,7 +749,7 @@ window#waybar.empty #window {
         text-shadow 160ms ease,
         box-shadow 160ms ease;
 }
-/* Colori in base alla classe che mette lo script: cool/warm/hot */
+/* Color based on script: cool/warm/hot */
 #custom-nvidia.cool {
     color: #ffffff; /* fredda  */
 }
@@ -804,7 +759,7 @@ window#waybar.empty #window {
 #custom-nvidia.hot {
     color: #bf616a; /* calda   */
 }
-/* (opzionale) Iconcine un filo più staccate dal testo */
+/* icon spacing */
 #custom-nvidia {
     -gtk-icon-shadow: none;
 }
@@ -812,7 +767,7 @@ window#waybar.empty #window {
 #custom-nvidia .label {
     margin: 0 2px;
 }
-/* (opzionale) Effetto “alert” quando hot: risalta un po’ di più */
+/* alert effect */
 #custom-nvidia.hot {
     font-weight: 700;
     text-shadow: 0 0 6px rgba(191, 97, 106, 0.25);
@@ -958,9 +913,9 @@ window#waybar.empty #window {
 }
 #custom-ping:hover {
     background-color: @hover;
-    padding: 3px 6px 1px 6px; /* +1px verticale, +3px orizzontale */
-    margin: 7px 7px; /* compensa per restare più centrato */
-    border-radius: 7px; /* un filo più tondo quando cresce */
+    padding: 3px 6px 1px 6px;
+    margin: 7px 7px;
+    border-radius: 7px;
 }
 
 /* ── Audio visualizer (Cava) ───────────────────────────────────── */
@@ -968,7 +923,6 @@ window#waybar.empty #window {
     min-width: 175px;
     padding: 0px 8px;
     border-style: solid;
-    /*background-color: shade(#24273a, 1);*/
     background-color: @backgroundsoftdark;
     opacity: 1;
     margin: 8px 0px 8px 2px;
@@ -978,22 +932,21 @@ window#waybar.empty #window {
 
 /* ── Mako ───────────────────────────────────── */
 #custom-mako-button {
-    font-family: "Noto Sans", monospace; /* Font semplice per icona */
+    font-family: "Noto Sans", monospace;
     font-size: 15px;
-    /*color: #ffffff; */ /* Testo / icona bianca */
     color: @luna;
-    background-color: @backgroundsoftdark; /* Sfondo scuro, cambia a piacere */
-    padding: 1px 2px; /* Spazio interno */
-    margin: 7px 2px 7px 5px; /* Spazio tra moduli */
-    border-radius: 6px; /* Bordi arrotondati */
-    min-width: 16px; /* Larghezza minima */
+    background-color: @backgroundsoftdark;
+    padding: 1px 2px;
+    margin: 7px 2px 7px 5px;
+    border-radius: 6px;
+    min-width: 16px;
 }
 #custom-mako-button:hover {
-    background-color: @hover; /* Hover leggero */
+    background-color: @hover;
     color: @luna;
-    padding: 3px 6px 1px 6px; /* +1px verticale, +3px orizzontale */
-    margin: 4px 4px; /* compensa per restare più centrato */
-    border-radius: 7px; /* un filo più tondo quando cresce */
+    padding: 3px 6px 1px 6px;
+    margin: 4px 4px;
+    border-radius: 7px;
 }
 
 /* ── Uptime ───────────────────────────────────── */
