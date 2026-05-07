@@ -242,10 +242,11 @@
         "format": "{icon}",
         "tooltip": true,
         "format-icons": {
-            "activated": "",
-            "deactivated": "",
+            "activated": "聆",
+            "deactivated": "聆",
         },
-        "on-click-right": "hyprlock",
+        "tooltip-format-activated": "Inhibitor status ACTIVE",
+        "tooltip-format-deactivated": "Inhibitor status INACTIVE",
     },
     // Custom Mic Sensor
     "custom/mic": {

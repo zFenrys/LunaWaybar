@@ -292,8 +292,9 @@ window#waybar.empty #window {
 
 /* ── Idle Inibithor ───────────────────────────────────────── */
 #idle_inhibitor {
+    min-width: 28px;
     margin-right: 10px;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: bold;
     opacity: 0.1;
     color: @iconcolor;
@@ -303,14 +304,16 @@ window#waybar.empty #window {
 }
 #idle_inhibitor:hover {
     opacity: 0.5;
-    color: #dc2f2f;
+    color: @luna;
+    font-size: 28;
 }
 #idle_inhibitor.activated {
-    margin-right: 15px;
-    font-size: 18px;
+    margin-right: 10px;
+    font-size: 26px;
     font-weight: bold;
     opacity: 0.8;
-    color: #dc2f2f;
+
+    color: @luna;
 }
 
 /* ── Custom Modules ───────────────────────────────────────── */
