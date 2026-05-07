@@ -1,0 +1,318 @@
+//  __  __           _       _
+// |  \/  | ___   __| |_   _| | ___  ___
+// | |\/| |/ _ \ / _` | | | | |/ _ \/ __|
+// | |  | | (_) | (_| | |_| | |  __/\__ \
+// |_|  |_|\___/ \__,_|\__,_|_|\___||___/
+//
+//
+// by Stephan Raabe (2023)
+// -----------------------------------------------------
+//
+{
+    // Workspaces
+    "hyprland/workspaces": {
+        "on-click": "activate",
+        "active-only": false,
+        "all-outputs": false,
+        "show-special": true,
+        "format": "{icon}",
+        "pango": true,
+        "format-icons": {
+            "1": "",
+            "2": "",
+            "3": "",
+            "4": "",
+            "5": "",
+            "6": "",
+            "7": "",
+            "8": "",
+            "9": "",
+            "10": ""
+        },
+        "persistent-workspaces": {
+            "HDMI-A-2": [6, 7, 8, 9, 10],
+            "DP-1": [1, 2, 3, 4, 5]
+        }
+    },
+    // Now Playing di ML4W
+    //"custom/musicnano ": {
+    //    "return-type": "json",
+    //    "exec": "/home/manuel/.local/bin/waybar-music-run.sh",
+    //    "format": "{}",
+    //    "tail": true,
+    //    "exec-if": "playerctl -l 2>/dev/null | grep -q .",
+    //    "on-click": "playerctl -p playerctld play-pause",
+    //    "on-scroll-up": "playerctl -p playerctld next",
+    //    "on-scroll-down": "playerctl -p playerctld previous",
+    //    "on-click-right": "playerctld shift; sleep 0.1; pid=$(cat /tmp/waybar_music.pid 2>/dev/null); [ -n \"$pid\" ] && kill \"$pid\" 2>/dev/null || true"
+    //},
+    "custom/spacer": {
+        "format": "│", // il “|” elegante (box-drawing). Cambialo se vuoi
+        "tooltip": false
+    },
+    // Custom Music
+    "custom/music": {
+        "return-type": "json",
+        "exec": "/home/manuel/.local/bin/waybar-module-music --format '%icon% %artist% - %title% %player-icon%' --marquee --effect-speed 1500 --title-width 40",
+        "format": "{}",
+        "tail": true,
+        //"exec-if": "command -v /usr/bin/playerctl >/dev/null && /usr/bin/playerctl -l 2>/dev/null | grep -q .",
+        "on-click": "/usr/bin/playerctl -p playerctld play-pause",
+        "on-scroll-up": "/usr/bin/playerctl -p playerctld next",
+        "on-scroll-down": "/usr/bin/playerctl -p playerctld previous"
+        //"on-click-right": "/bin/bash -lc 'playerctld shift; sleep 0.15; wp=$PPID; pid=$(pgrep -P \"$wp\" -f \"/home/manuel/.local/bin/waybar-module-music\" | head -n1); [ -n \"$pid\" ] && kill \"$pid\" 2>/dev/null || true'"
+    },
+    // Hyprland Window
+    "hyprland/window": {
+        "format": "   {title}",
+        "max-length": 80,
+        "rewrite": {
+            "^(\\s*)$": "", // vuoto o soli spazi -> niente
+            "^(.*) - (?:Brave(?: Search)?|Chromium|Outlook)$": "│ $1", // pulizie note
+            "^(.*) Microsoft Teams$": "│ $1",
+            "^(.*\\S.*)$": "❯$1" // fallback: solo se contiene NON-spazi😀
+        }
+    },
+
+    // Rofi Application Launcher
+    "custom/appmenu": {
+        "format": "Apps",
+        "tooltip-format": "Left: Open the application launcher\nRight: Show all keybindings",
+        "on-click": "rofi -show drun -theme ~/.config/rofi/launchers/type-6/style-6.rasi -replace",
+        "on-click-right": "",
+        "tooltip": false
+    },
+    // Power Menu
+    "custom/exit": {
+        "format": "",
+        "tooltip-format": "Powermenu",
+        "on-click": "sh -c '/home/manuel/.config/waybar/scripts/powermenu.sh'",
+        "tooltip": false
+    },
+    // Keyboard State
+    "keyboard-state": {
+        "numlock": true,
+        "capslock": true,
+        "format": "{name} {icon}",
+        "format-icons": {
+            "locked": "",
+            "unlocked": ""
+        }
+    },
+    // System tray
+    "tray": {
+        // "icon-size": 28,
+        "spacing": 5,
+        "icon-size": 22
+    },
+    // Mako Icon
+    "custom/mako-button": {
+        "exec": "/home/manuel/.config/waybar/scripts/mako-count",
+        "interval": 5,
+        "on-click": "makoctl restore",
+        "return-type": "json",
+        "min-length": 1,
+        "max-length": 12
+    },
+    // Clock
+    "clock": {
+        "interval": 60,
+        "timezone": "Europe/Rome",
+        "locale": "it_IT.UTF-8",
+        "format": "{:%H:%M}",
+        "format-alt": "{:%d-%m-%Y}",
+        "tooltip-format": "<big>{:%H:%M\n%A}</big>\n<tt><big>{calendar}</big></tt>",
+        "on-click": "toggle-format"
+    },
+    // System
+    "custom/system": {
+        "format": "",
+        "tooltip": false
+    },
+    "hyprland/language": {
+        "format": "/ K {short}"
+    },
+    // CPU
+    "cpu": {
+        "format": "CPU {usage}%",
+        "on-click": "kitty -e btop",
+        "signal": 8,
+        "on-middle-click": "pkill -RTMIN+8 waybar"
+    },
+    // Memory
+    "memory": {
+        "format": "MEM {}%",
+        "on-click": "kitty -e btop",
+        "signal": 8,
+        "on-middle-click": "pkill -RTMIN+8 waybar"
+    },
+    // Disk (spazio usato)
+    "disk": {
+        "interval": 30,
+        "format": "DISK {percentage_used}%",
+        "path": "/",
+        "on-click": "kitty -e gdu -i /",
+        "signal": 8,
+        "on-middle-click": "pkill -RTMIN+8 waybar"
+    },
+    // Group Hardware
+    "group/hardware": {
+        "orientation": "inherit",
+        "drawer": {
+            "transition-duration": 300,
+            "children-class": "not-memory",
+            "transition-left-to-right": false
+        },
+        "modules": [
+            "custom/system",
+            "disk",
+            "cpu",
+            "memory",
+            "hyprland/language"
+        ]
+    },
+    // Network
+    "network": {
+        "format": "{ifname}",
+        "format-wifi": " {essid} [{signalStrength}%]",
+        //   "format-ethernet": "  {ifname}",
+        "format-ethernet": "",
+        "format-disconnected": "Disconnected ⚠",
+        "tooltip-format": " {ifname} via {gwaddri}",
+        "tooltip-format-wifi": "  {ifname} @ {essid}\nIP: {ipaddr}\nStrength: {signalStrength}%\nFreq: {frequency}MHz\nUp: {bandwidthUpBits} Down: {bandwidthDownBits}",
+        "tooltip-format-ethernet": " {ifname}\nIP: {ipaddr}\n up: {bandwidthUpBits} down: {bandwidthDownBits}",
+        "tooltip-format-disconnected": "Disconnected",
+        "max-length": 50,
+        "on-click": "nm-applet",
+        "on-click-right": "~/.config/ml4w/scripts/nm-applet.sh toggle"
+    },
+    // Battery
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}   {capacity}%",
+        "format-charging": "  {capacity}%",
+        "format-plugged": "  {capacity}%",
+        "format-alt": "{icon}  {time}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": [" ", " ", " ", " ", " "]
+    },
+    // Mullvad VPN
+    "custom/vpn": {
+        "exec": "~/.config/waybar/scripts/generic_vpn.sh",
+        "interval": 5,
+        "return-type": "json",
+        "format": "{text}", //chiave \ue0da
+        "on-click": "~/.config/waybar/scripts/toggle-mullvad.sh",
+        "on-click-right": "\"/opt/Mullvad VPN/mullvad-gui\" &",
+        "tooltip": true,
+        "id": "custom-vpn"
+    },
+    // Pulseaudio
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%  {format_source}",
+        "format-bluetooth": "{volume}% {icon} {format_source}",
+        "format-bluetooth-muted": " {icon} {format_source}",
+        "format-muted": " {format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "always-show-source": true,
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", " ", " "]
+        },
+        "on-click": "pavucontrol",
+        "on-click-middle": "pamixer -t && pkill -RTMIN+10 waybar"
+    },
+    // Bluetooth
+    "bluetooth": {
+        "format-connected": "󰂱 {device_alias}",
+        "format-on": "󰂯",
+        "format-off": "󰂲",
+        "format-disabled": "󰂲",
+        "interval": 30,
+        "on-click": "/home/manuel/.config/waybar/scripts/toggle_bluetooth.sh",
+        "on-click-right": "blueman-manager",
+        "format-no-controller": ""
+    },
+    // Other
+    "user": {
+        "format": "{user}",
+        "interval": 60,
+        "icon": false
+    },
+    // Idle Inhibator
+    "idle_inhibitor": {
+        "format": "{icon}",
+        "tooltip": true,
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        },
+        "on-click-right": "hyprlock"
+    },
+    // Custom Mic Sensor
+    "custom/mic": {
+        "exec": "/home/manuel/.config/waybar/scripts/mic_indicator.sh",
+        "return-type": "json",
+        "tail": true,
+        "tooltip": false,
+        "on-click": "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle; pkill -RTMIN+9 waybar"
+    },
+    // Nvidia
+    "custom/nvidia": {
+        "exec": "/home/manuel/.config/waybar/scripts/nvidia-gpu.sh",
+        "return-type": "json",
+        "interval": 5,
+        "tooltip": true,
+        "on-click": "kitty -e btop"
+    },
+    // Ping
+    "custom/ping": {
+        "exec": "/bin/bash -lc '/home/manuel/.config/waybar/scripts/ping-ms.sh 1.1.1.1'",
+        "return-type": "json",
+        "interval": 5,
+        "tooltip": true,
+        "on-click": "kitty -e bash -c 'speedtest-cli; echo \"Premi invio per chiudere\"; read'"
+    },
+    // Sys Stat
+    "custom/sys": {
+        "exec": "~/.config/waybar/scripts/sys_block_grade.sh",
+        "return-type": "json",
+        "interval": 2,
+        "on-click": "kitty -e btop", // sinistro: CPU/RAM
+        "on-click-right": "kitty -e gdu -i /", // destro: DISK tool
+        "on-middle-click": "pkill -RTMIN+8 waybar",
+        "signal": 8
+    },
+    // Audio Visualizer
+    "custom/cava": {
+        "exec": "~/.config/waybar/scripts/cava_waybar.sh",
+        "return-type": "json",
+        "interval": 0,
+        "restart-interval": 0,
+        "format": "{text}",
+        "escape": false,
+        "markup": true
+    },
+    // Audio Visualizer
+    "custom/cava-internal": {
+        "exec": "sh ~/.config/waybar/scripts/cava.sh",
+        "format": "{}",
+        "tooltip": false,
+        //"on-click": "swaymsg reload & pkill waybar & waybar",
+        "layer": "below",
+        "output": "all"
+    }
+}

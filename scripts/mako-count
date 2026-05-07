@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# ~/.local/bin/mako-count
+# Mostra sempre il pallino
+echo "{ \"text\": \"➤\", \"tooltip\": \"Clicca per ripristinare notifiche\" }"
+exit 0

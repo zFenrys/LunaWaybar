@@ -1,0 +1,80 @@
+/* ── DP-1 ────────────────────────────────────────────────── */
+[{
+    "layer": "below",
+    "output": "DP-1",
+    "margin-top": 8,
+    "margin-bottom": 0,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 0,
+    "height":48,
+
+    // Load Modules
+    "include": [
+        "/home/manuel/.config/waybar/modules.json"
+    ],
+
+    "modules-left": [
+    //  "custom/appmenu",
+        "custom/music",
+        "hyprland/window",
+    ],
+
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-right": [
+        "custom/uptime",
+        "custom/cava-internal",
+        "custom/exit",
+        "idle_inhibitor",
+        "custom/vpn",
+        "bluetooth",
+        "network",
+        "battery",
+        "tray",
+        "pulseaudio",
+        "custom/mic",
+        "clock",
+        "custom/mako-button"
+    ]
+},
+
+/* ── HDMI-A-2 ────────────────────────────────────────────── */
+
+{
+    "layer": "below",
+    "output": "HDMI-A-2",
+    "margin-top": 5,
+    "margin-bottom": 0,
+    "margin-left": 10,
+    "margin-right": 10,
+    "spacing": 0,
+    "height":43,
+
+    // Load Modules
+    "include": [
+        "/home/manuel/.config/waybar/modules.json"
+    ],
+
+    "modules-left": [
+    "custom/music"
+
+    ],
+
+    "modules-center": [
+        "hyprland/workspaces"
+    ],
+
+    "modules-right": [
+        "custom/ping",
+        "custom/nvidia",
+        "custom/sys",
+        "battery",
+        "custom/mic",
+        "clock",
+        "custom/mako-button"
+    ],
+
+}]
