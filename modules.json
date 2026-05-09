@@ -15,7 +15,7 @@
         "show-special": true,
         "format": "{icon}",
         "pango": true,
-        "ignore-workspaces": ["11"],
+        "ignore-workspaces": ["huion"],
         "format-icons": {
             "1": "",
             "2": "",
