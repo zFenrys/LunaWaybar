@@ -1,8 +1,14 @@
+
+
 <p align="center">
   My personal Waybar based on ML4W, built around my own needs and heavily customized for my own workflow and aesthetic. It uses different parts from various bars, with some AI assistance involved—so expect a few bugs.<br><br>
   Modified modules, styling, scripts, and layout to better fit my setup.<br>
   Credits to ML4W for the original foundation.
 </p>
+
+> [!WARNING]
+> <strong>This configuration was built specifically for my unusual dual-monitor setup with mixed resolutions
+> If you plan to use it, you will almost certainly need to adapt the CSS to properly match your own display configuration..</strong><br>
 
 <p align="center">
   <strong>Monitor 1</strong><br>
